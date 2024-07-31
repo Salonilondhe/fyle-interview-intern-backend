@@ -1,0 +1,7 @@
+from flask import jsonify
+from models import Assignment
+
+class AssignmentsController:
+    def get_assignments(self):
+        assignments = Assignment.query.all()
+        return jsonify([assignment.to_dict() for assignment in assignments])
